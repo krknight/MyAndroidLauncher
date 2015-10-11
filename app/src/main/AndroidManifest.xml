@@ -1,9 +1,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.keithknight.myandroidlauncher">
 
+    <!-- http://code.tutsplus.com/tutorials/build-a-custom-launcher-on-android-cms-21358 -->
+    <!--  Note: need to add another - between android and cms for above link to work -->
+
+    <!--
+    In its most basic form, a launcher is an application that shows up
+    when you press the home button
+    -->
+
     <application android:allowBackup="true" android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme">
 
+        <!-- This activity displays the home screen -->
         <activity
             android:name=".HomeActivity"
             android:label="Simple Launcher Home"
@@ -13,10 +22,22 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <!-- By adding categories .HOME and .DEFAULT
+                  to the intent-filter group, the associated Activity
+                  behaves like a launcher and shows up as an option
+                  when you press the device's home button -->
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
+        </activity>
+
+        <!-- This activity displays the applications that are installed on the user's device
+        it is also responsible for launching applications -->
+        <activity
+            android:name=".AppsListActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            >
         </activity>
 
     </application>
